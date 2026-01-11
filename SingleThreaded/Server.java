@@ -33,6 +33,9 @@ public class Server {
             /* PrintWriter is a character-based writer.It wraps the OutputStream so you can easily send text using:print(),println().Much easier than manually sending bytes */
             BufferedReader fromClient = new BufferedReader(new InputStreamReader(acceptedConnection.getInputStream()));//This line creates a text reader that lets the server read messages sent by the client line-by-line
             toClient.println("Hello from the Server");
+            toClient.close();
+            fromClient.close();
+            acceptedConnection.close();
         } catch (IOException e) {
                 e.printStackTrace();
             }
